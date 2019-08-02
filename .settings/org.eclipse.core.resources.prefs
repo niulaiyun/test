@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java/cn/com/WebXml/DataSet.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/GetSupportDataSetResponseGetSupportDataSetResult.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/GetWeatherbyCityName.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/GetWeatherbyCityNamePro.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/GetWeatherbyCityNameProResponse.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/GetWeatherbyCityNameResponse.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/WeatherWebService.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/WeatherWebServiceLocator.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/WeatherWebServiceSoap.java=UTF-8
+encoding//src/main/java/cn/com/WebXml/WeatherWebServiceSoapStub.java=UTF-8
