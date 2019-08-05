@@ -6,6 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.print.DocFlavor.STRING;
 
 import org.junit.Test;
 
@@ -37,9 +40,10 @@ public class T2 {
 	}
 	@Test
 	public void test02() {
-		List<Map<String, Object>> row=new ArrayList<>();
+List<Map<String, Object>> row=new ArrayList<>();
 		
 		List<Map<String, Object>> rows=new ArrayList<>();
+		
 		 Map<String, Object> map=new HashMap<String, Object>();
 		 map.put("A", "12345");
 		 map.put("B", "123456");
@@ -56,14 +60,58 @@ public class T2 {
 		 map5.put("B", "6543213");
 		 map5.put("C", "76543213");
 		 map5.put("D", "876543213");
+		 
+		 Map<String, Object> map6=new HashMap<String, Object>();
+		 map6.put("A", "54321dfsdf2");
+		 map6.put("B", "6543213");
+		 map6.put("C", "76543213");
+		 map6.put("D", "876543213");
+		 Map<String, Object> map7=new HashMap<String, Object>();
+		 map7.put("A", "54321dfsdf2f");
+		 map7.put("B", "6543213");
+		 map7.put("C", "76543213");
+		 map7.put("D", "876543213");
+		 
+		 Map<String, Object> map8=new HashMap<String, Object>();
+		 map8.put("A", "54321dfsdf2f1");
+		 map8.put("B", "6543213");
+		 map8.put("C", "76543213");
+		 map8.put("D", "876543213");
 	     row.add(map);
 	     row.add(map2);
 	     row.add(map5);
+	     row.add(map6);
+	     row.add(map7);
+	     
+	     
 	     rows.add(map);
 	     rows.add(map2);
-	     row.removeAll(rows);
-	     System.out.println(row);
-
+	     rows.add(map5);
+	     rows.add(map8);
+	     List<Map<String, Object>> aa=new ArrayList<>();
+	     aa.addAll(row);
+	     /*for(Map<String, Object> a:row) {
+	    	 aa.add(a);
+	     }*/
+	    flag:
+	    for(int i=0;i<row.size();i++) {
+	    	String type=row.get(i).get("A").toString()+row.get(i).get("B").toString();
+	    	for(int k=0;k<rows.size();k++) {
+		    	String types=rows.get(k).get("A").toString()+rows.get(k).get("B").toString();
+		    	if(type.equals(types)) {
+					aa.remove(0);
+					continue flag;
+				}
+		    }
+	    }
+	    System.out.println(aa);
+	    
+	    
+	    
+	  
 	}
+
+
+	
 
 }

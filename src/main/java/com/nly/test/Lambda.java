@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -42,23 +43,48 @@ public class Lambda {
 		list.add(new Student(1,"张三"));
 		list.add(new Student(2,"李四"));
 		list.add(new Student(3,"王五"));
-		 Map<Integer, List<Student>> collects = list.stream().filter(student->student.getName().equals("张三"))
-				.collect(Collectors.groupingBy(Student::getId));
+		List<Student> collec = list.stream().filter(student->student.getName().equals("张三")).collect(Collectors.toList());
+		
+		collec.forEach(student->student.setName("wu"));
+		  
+		
+		
+		
+		/* Map<Integer, List<Student>> map = list.stream().filter(student->student.getName().equals("张三"))
+				.collect(Collectors.groupingBy(Student::getId));*/
 		 //获取map的键用set接收
-		 Set<Integer> keySet = collects.keySet();
-		 keySet.stream();
+		//Set<Integer> keySet = map.keySet();
+		//keySet.stream();
 		 //获取value
-		 Collection<List<Student>> values = collects.values();
-	       //  values.stream().collect(Collectors.tol);
-	       
-		/*  for (Integer integer : keySet) {
-			System.out.println(integer);
-		}*/
+		 //Collection<List<Student>> values = map.values();
+	      //  values.stream().collect(Collectors.toList());
+	       //获取键值对的映射关系
+	    // Set<Entry<Integer, List<Student>>> entrySet = map.entrySet();
+	       // entrySet.stream();
 		//获取
 		 //返回对象的某一个集合属性
-		 /*List<String> collect = list.stream().map(Student::getName).collect(Collectors.toList());
-		 collect.stream().forEach(obj->System.out.println(obj));*/
+		// List<String> collect = list.stream().map(Student::getName).collect(Collectors.toList());
+		// collect.stream().forEach(obj->System.out.println(obj));
 	   //collect.stream().forEach(Student::getName);
 	}
-	
+	@Test
+	public void test3() {
+		//数组转换stream流转换程集合
+		Stream<Integer> of = Stream.of(1,2,3,4,5);
+		List<Integer> collect = of.collect(Collectors.toList());
+	}
+	@Test
+	public void test4() {
+		List<Student> list=new ArrayList<>();
+		list.add(new Student(1,"张三"));
+		list.add(new Student(2,"李四"));
+		list.add(new Student(3,"王五"));
+		list.stream().forEach(s->{
+			if(s.getName().equals("张三")) {
+				s.setName("流");
+				System.out.println(s.getName());
+			}
+			
+		});
+	}
 }
