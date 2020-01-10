@@ -25,7 +25,11 @@ public class Lambda_lianxi {
 		    one.add("老子");
 		    one.add("庄子");
 		    one.add("洪七公");
-		    //1条件第一个队伍只要名字为3个字的成员姓名；存储到一个新的集合中
+		    List<String> collect = one.stream().skip((2-1)*2).limit(2).collect(Collectors.toList());
+		    for (String str : collect) {
+				System.out.println(str);
+			}
+		   /* //1条件第一个队伍只要名字为3个字的成员姓名；存储到一个新的集合中
 		    //2 第一个队伍只选前三个人存储到一个新的集合中
 		    Stream<String> oneStream = one.stream().filter(s->s.length()==3).limit(3);
 		    
@@ -43,7 +47,7 @@ public class Lambda_lianxi {
 		    //将两个队伍合并一个
 		    //根据姓名创建Person对象
 		    //打印整个队伍Perosn对象信息
-		     Stream.concat(oneStream, twoStream).map(name->new Person(name)).forEach(p->System.out.println(p));
+		     Stream.concat(oneStream, twoStream).map(name->new Person(name)).forEach(p->System.out.println(p));*/
 		    
 	}
 	

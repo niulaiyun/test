@@ -78,6 +78,13 @@
 		<artifactId>commons-logging</artifactId>
 		<version>1.2</version>
 	</dependency>
+			<!-- 引入org.json所需依赖 -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+	
   </dependencies>
   <build>
      <plugins>

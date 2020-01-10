@@ -20,7 +20,7 @@ public class Lambda_limit {
 	        //limit用来取前几个
 	        Stream<String> limit = stream.limit(2);
 	        limit.forEach(s->System.out.println(s));
-	        System.out.println(limit.count());
+	       // System.out.println(limit.count());
 	        
 	}
 	

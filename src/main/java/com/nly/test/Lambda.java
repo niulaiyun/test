@@ -40,14 +40,24 @@ public class Lambda {
 	public void test2() {
 		
 		List<Student> list=new ArrayList<>();
-		list.add(new Student(1,"张三"));
-		list.add(new Student(2,"李四"));
-		list.add(new Student(3,"王五"));
-		List<Student> collec = list.stream().filter(student->student.getName().equals("张三")).collect(Collectors.toList());
+		list.add(new Student(1,"张三",19));
+		list.add(new Student(2,"李四",18));
+		list.add(new Student(3,"王五",17));
+		//List<Student> collec = list.stream().filter(student->student.getName().equals("张三")).collect(Collectors.toList());
 		
-		collec.forEach(student->student.setName("wu"));
-		  
+		List<List<Object>>  str=new ArrayList<>();
 		
+		list.stream().collect(Collectors.toList()).forEach(s-> {
+			List<Object>  st=new ArrayList<>();
+			st.add(s.getId());
+			st.add(s.getName());
+		      str.add(st);      
+	    });
+		
+           for (List<Object> list2 : str) {
+        	    System.out.print(list2.get(0)+""+ list2.get(1));
+			    System.out.println();
+		     }
 		
 		
 		/* Map<Integer, List<Student>> map = list.stream().filter(student->student.getName().equals("张三"))
@@ -73,7 +83,7 @@ public class Lambda {
 		Stream<Integer> of = Stream.of(1,2,3,4,5);
 		List<Integer> collect = of.collect(Collectors.toList());
 	}
-	@Test
+	/*@Test
 	public void test4() {
 		List<Student> list=new ArrayList<>();
 		list.add(new Student(1,"张三"));
@@ -86,5 +96,5 @@ public class Lambda {
 			}
 			
 		});
-	}
+	}*/
 }
